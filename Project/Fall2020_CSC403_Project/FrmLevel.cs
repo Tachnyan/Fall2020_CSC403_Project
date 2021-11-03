@@ -1,7 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -15,13 +17,17 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
-    public FrmLevel() {
+    public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
+
+       public FrmLevel() {
       InitializeComponent();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
+
+      MapMusic();
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -46,6 +52,10 @@ namespace Fall2020_CSC403_Project {
       timeBegin = DateTime.Now;
     }
 
+    public void MapMusic()
+        {
+            mapMusic.PlayLooping();
+        }
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
@@ -109,6 +119,9 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
+
+     
+        
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
