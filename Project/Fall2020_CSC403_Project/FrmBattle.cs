@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    public SoundPlayer battleMusic = new SoundPlayer(Resources.battle_music);
+    public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
 
     private FrmBattle() {
             
@@ -40,9 +42,9 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+      SoundPlayer simpleSound = new SoundPlayer(Resources.battle_music2);
       simpleSound.Play();
-
+      
       tmrFinalBattle.Enabled = true;
       bossBattle = true;
     }
