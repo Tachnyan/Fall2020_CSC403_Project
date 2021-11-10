@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Threading;
@@ -53,9 +53,9 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+      SoundPlayer simpleSound = new SoundPlayer(Resources.battle_music2);
       simpleSound.Play();
-
+      
       tmrFinalBattle.Enabled = true;
       bossBattle = true;
     }
