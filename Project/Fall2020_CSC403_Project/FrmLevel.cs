@@ -103,6 +103,12 @@ namespace Fall2020_CSC403_Project {
       }
 
 
+      // check collision with consumables
+      if(HitAConsumable(player)){
+                player.AlterHealth(4);
+                disposeConsumable();
+      }
+
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
       // update the player's health
@@ -133,6 +139,18 @@ namespace Fall2020_CSC403_Project {
 
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
+    }
+
+    private bool HitAConsumable(Character you){
+       bool hitConsumable = false;
+       if (you.Collider.Intersects(HitAConsumable().Collider)){
+            hitConsumable = true;
+       }
+       return hitConsumable;
+    }
+
+    private void disposeConsumable() { 
+        
     }
 
     private void Fight(Enemy enemy) {
