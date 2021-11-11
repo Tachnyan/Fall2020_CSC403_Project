@@ -326,6 +326,10 @@ namespace Fall2020_CSC403_Project
                 winImage.Visible = true;
             }
         }
+    
+    
+        
+
 
 
         private void LoseChecker(object sender, EventArgs e)
@@ -355,9 +359,78 @@ namespace Fall2020_CSC403_Project
             this.ActiveControl = null;
         }
 
-        private void cheatMenuEvasionLabel_Click(object sender, EventArgs e)
+    //ticks and constantly updates stats on cheatMenu stat labels
+    private void cheatMenuUpdater_Tick(object sender, EventArgs e)
+    {
+      cheatMenuSpeedDisplay.Text = player.getSpeed().ToString();
+      cheatMenuHealthDisplay.Text = player.Health.ToString();
+      cheatMenuEvasionDisplay.Text = player.evasion.ToString();
+      cheatMenuDefenseDisplay.Text = player.defense.ToString();
+    }
+        //cheat menu decrement speed button
+        private void cheatMenuSpeedDownButton_Click(object sender, EventArgs e)
         {
+            if (player.getSpeed() > 1){
+                player.setSpeed(player.getSpeed() - 1);
+            }
+        }
 
+        //cheat menu increment speed button
+        private void cheatMenuSpeedUpButton_Click(object sender, EventArgs e)
+        {
+            player.setSpeed(player.getSpeed() + 1);
+        }
+
+        //cheat menu decrement health
+        private void cheatMenuHealthDownButton_Click(object sender, EventArgs e)
+        {
+            if (player.Health > 1){
+                player.Health--;
+            }
+        }
+
+        //cheat menu increment health
+        private void cheatMenuHealthUpButton_Click(object sender, EventArgs e)
+        {
+            if (player.Health < 20) {
+                player.Health++;
+            }
+        }
+
+        //cheat menu decrement evasion
+        private void cheatMenuEvasionDownButton_Click(object sender, EventArgs e)
+        {   
+            if(player.evasion > 1) {
+                player.evasion--;
+            }
+        }
+
+        //cheat menu increment evasion
+        private void cheatMenuEvasionUpButton_Click(object sender, EventArgs e)
+        {
+            player.evasion++;
+        }
+
+        //cheat menu decrement defense
+        private void cheatMenuDefenseDownButton_Click(object sender, EventArgs e)
+        {
+            if (player.defense > 1)
+            {
+                player.defense--;
+            }
+        }
+
+        //cheat menu increment defense
+        private void cheatMenuDefenseUpButton_Click(object sender, EventArgs e)
+        {
+            player.defense++;
+        }
+
+        private void cheatMenuWinButton_Click(object sender, EventArgs e)
+        {
+            cheatMenu.Visible = false;
+            this.ActiveControl = null;
+            win = true;
         }
     }
 }
