@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Character {
-    private const int GO_INC = 3;
+    private int GO_INC = 3;
 
     public Vector2 MoveSpeed { get; private set; }
     public Vector2 LastPosition { get; private set; }
@@ -16,6 +16,14 @@ namespace Fall2020_CSC403_Project.code {
     public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
       Collider = collider;
+    }
+
+    public void setSpeed(int inputSpeed) { 
+      GO_INC = inputSpeed;
+    }
+
+    public int getSpeed() { 
+      return GO_INC;
     }
 
     public void Move() {

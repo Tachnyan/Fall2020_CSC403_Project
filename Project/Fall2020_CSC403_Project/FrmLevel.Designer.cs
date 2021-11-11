@@ -51,6 +51,19 @@
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cheatMenu = new System.Windows.Forms.Panel();
+            this.cheatMenuDefenseDisplay = new System.Windows.Forms.Label();
+            this.cheatMenuEvasionDisplay = new System.Windows.Forms.Label();
+            this.cheatMenuHealthDisplay = new System.Windows.Forms.Label();
+            this.cheatMenuSpeedDisplay = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cheatMenuDefenseUpButton = new System.Windows.Forms.Button();
+            this.cheatMenuEvasionUpButton = new System.Windows.Forms.Button();
+            this.cheatMenuHealthUpButton = new System.Windows.Forms.Button();
+            this.cheatMenuSpeedUpButton = new System.Windows.Forms.Button();
+            this.cheatMenuDefenseLabel = new System.Windows.Forms.Label();
+            this.cheatMenuEvasionLabel = new System.Windows.Forms.Label();
+            this.cheatMenuHealthLabel = new System.Windows.Forms.Label();
+            this.cheatMenuSpeedLabel = new System.Windows.Forms.Label();
             this.cheatMenuDefenseDownButton = new System.Windows.Forms.Button();
             this.cheatMenuEvasionDownButton = new System.Windows.Forms.Button();
             this.cheatMenuHealthDownButton = new System.Windows.Forms.Button();
@@ -58,20 +71,8 @@
             this.cheatMenuWinButton = new System.Windows.Forms.Button();
             this.cheatMenuPictureBox = new System.Windows.Forms.PictureBox();
             this.cheatMenuExitButton = new System.Windows.Forms.Button();
-            this.cheatMenuDefenseDisplay = new System.Windows.Forms.TextBox();
-            this.cheatMenuEvasionDisplay = new System.Windows.Forms.TextBox();
-            this.cheatMenuHealthDisplay = new System.Windows.Forms.TextBox();
-            this.cheatMenuSpeedDisplay = new System.Windows.Forms.TextBox();
-            this.cheatMenuSpeedLabel = new System.Windows.Forms.Label();
-            this.cheatMenuHealthLabel = new System.Windows.Forms.Label();
-            this.cheatMenuEvasionLabel = new System.Windows.Forms.Label();
-            this.cheatMenuDefenseLabel = new System.Windows.Forms.Label();
-            this.cheatMenuSpeedUpButton = new System.Windows.Forms.Button();
-            this.cheatMenuHealthUpButton = new System.Windows.Forms.Button();
-            this.cheatMenuEvasionUpButton = new System.Windows.Forms.Button();
-            this.cheatMenuDefenseUpButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cheatMenuUpdater = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -348,6 +349,10 @@
             // cheatMenu
             // 
             this.cheatMenu.BackColor = System.Drawing.Color.Black;
+            this.cheatMenu.Controls.Add(this.cheatMenuDefenseDisplay);
+            this.cheatMenu.Controls.Add(this.cheatMenuEvasionDisplay);
+            this.cheatMenu.Controls.Add(this.cheatMenuHealthDisplay);
+            this.cheatMenu.Controls.Add(this.cheatMenuSpeedDisplay);
             this.cheatMenu.Controls.Add(this.label2);
             this.cheatMenu.Controls.Add(this.cheatMenuDefenseUpButton);
             this.cheatMenu.Controls.Add(this.cheatMenuEvasionUpButton);
@@ -364,15 +369,155 @@
             this.cheatMenu.Controls.Add(this.cheatMenuWinButton);
             this.cheatMenu.Controls.Add(this.cheatMenuPictureBox);
             this.cheatMenu.Controls.Add(this.cheatMenuExitButton);
-            this.cheatMenu.Controls.Add(this.cheatMenuDefenseDisplay);
-            this.cheatMenu.Controls.Add(this.cheatMenuEvasionDisplay);
-            this.cheatMenu.Controls.Add(this.cheatMenuHealthDisplay);
-            this.cheatMenu.Controls.Add(this.cheatMenuSpeedDisplay);
             this.cheatMenu.Location = new System.Drawing.Point(377, 210);
             this.cheatMenu.Name = "cheatMenu";
             this.cheatMenu.Size = new System.Drawing.Size(438, 300);
             this.cheatMenu.TabIndex = 21;
             this.cheatMenu.Visible = false;
+            // 
+            // cheatMenuDefenseDisplay
+            // 
+            this.cheatMenuDefenseDisplay.AutoSize = true;
+            this.cheatMenuDefenseDisplay.BackColor = System.Drawing.Color.White;
+            this.cheatMenuDefenseDisplay.Location = new System.Drawing.Point(175, 206);
+            this.cheatMenuDefenseDisplay.MinimumSize = new System.Drawing.Size(75, 15);
+            this.cheatMenuDefenseDisplay.Name = "cheatMenuDefenseDisplay";
+            this.cheatMenuDefenseDisplay.Size = new System.Drawing.Size(75, 15);
+            this.cheatMenuDefenseDisplay.TabIndex = 28;
+            this.cheatMenuDefenseDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cheatMenuEvasionDisplay
+            // 
+            this.cheatMenuEvasionDisplay.AutoSize = true;
+            this.cheatMenuEvasionDisplay.BackColor = System.Drawing.Color.White;
+            this.cheatMenuEvasionDisplay.Location = new System.Drawing.Point(175, 163);
+            this.cheatMenuEvasionDisplay.MinimumSize = new System.Drawing.Size(75, 15);
+            this.cheatMenuEvasionDisplay.Name = "cheatMenuEvasionDisplay";
+            this.cheatMenuEvasionDisplay.Size = new System.Drawing.Size(75, 15);
+            this.cheatMenuEvasionDisplay.TabIndex = 27;
+            this.cheatMenuEvasionDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cheatMenuHealthDisplay
+            // 
+            this.cheatMenuHealthDisplay.AutoSize = true;
+            this.cheatMenuHealthDisplay.BackColor = System.Drawing.Color.White;
+            this.cheatMenuHealthDisplay.Location = new System.Drawing.Point(175, 123);
+            this.cheatMenuHealthDisplay.MinimumSize = new System.Drawing.Size(75, 15);
+            this.cheatMenuHealthDisplay.Name = "cheatMenuHealthDisplay";
+            this.cheatMenuHealthDisplay.Size = new System.Drawing.Size(75, 15);
+            this.cheatMenuHealthDisplay.TabIndex = 26;
+            this.cheatMenuHealthDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cheatMenuSpeedDisplay
+            // 
+            this.cheatMenuSpeedDisplay.AutoSize = true;
+            this.cheatMenuSpeedDisplay.BackColor = System.Drawing.Color.White;
+            this.cheatMenuSpeedDisplay.Location = new System.Drawing.Point(175, 82);
+            this.cheatMenuSpeedDisplay.MinimumSize = new System.Drawing.Size(75, 15);
+            this.cheatMenuSpeedDisplay.Name = "cheatMenuSpeedDisplay";
+            this.cheatMenuSpeedDisplay.Size = new System.Drawing.Size(75, 15);
+            this.cheatMenuSpeedDisplay.TabIndex = 25;
+            this.cheatMenuSpeedDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Fugaz One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(144, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 31);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "CHEAT MENU";
+            // 
+            // cheatMenuDefenseUpButton
+            // 
+            this.cheatMenuDefenseUpButton.Location = new System.Drawing.Point(251, 203);
+            this.cheatMenuDefenseUpButton.Name = "cheatMenuDefenseUpButton";
+            this.cheatMenuDefenseUpButton.Size = new System.Drawing.Size(20, 20);
+            this.cheatMenuDefenseUpButton.TabIndex = 23;
+            this.cheatMenuDefenseUpButton.Text = "+";
+            this.cheatMenuDefenseUpButton.UseVisualStyleBackColor = true;
+            this.cheatMenuDefenseUpButton.Click += new System.EventHandler(this.cheatMenuDefenseUpButton_Click);
+            // 
+            // cheatMenuEvasionUpButton
+            // 
+            this.cheatMenuEvasionUpButton.Location = new System.Drawing.Point(251, 160);
+            this.cheatMenuEvasionUpButton.Name = "cheatMenuEvasionUpButton";
+            this.cheatMenuEvasionUpButton.Size = new System.Drawing.Size(20, 20);
+            this.cheatMenuEvasionUpButton.TabIndex = 22;
+            this.cheatMenuEvasionUpButton.Text = "+";
+            this.cheatMenuEvasionUpButton.UseVisualStyleBackColor = true;
+            this.cheatMenuEvasionUpButton.Click += new System.EventHandler(this.cheatMenuEvasionUpButton_Click);
+            // 
+            // cheatMenuHealthUpButton
+            // 
+            this.cheatMenuHealthUpButton.Location = new System.Drawing.Point(251, 120);
+            this.cheatMenuHealthUpButton.Name = "cheatMenuHealthUpButton";
+            this.cheatMenuHealthUpButton.Size = new System.Drawing.Size(20, 20);
+            this.cheatMenuHealthUpButton.TabIndex = 21;
+            this.cheatMenuHealthUpButton.Text = "+";
+            this.cheatMenuHealthUpButton.UseVisualStyleBackColor = true;
+            this.cheatMenuHealthUpButton.Click += new System.EventHandler(this.cheatMenuHealthUpButton_Click);
+            // 
+            // cheatMenuSpeedUpButton
+            // 
+            this.cheatMenuSpeedUpButton.Location = new System.Drawing.Point(251, 80);
+            this.cheatMenuSpeedUpButton.Name = "cheatMenuSpeedUpButton";
+            this.cheatMenuSpeedUpButton.Size = new System.Drawing.Size(20, 20);
+            this.cheatMenuSpeedUpButton.TabIndex = 20;
+            this.cheatMenuSpeedUpButton.Text = "+";
+            this.cheatMenuSpeedUpButton.UseVisualStyleBackColor = true;
+            this.cheatMenuSpeedUpButton.Click += new System.EventHandler(this.cheatMenuSpeedUpButton_Click);
+            // 
+            // cheatMenuDefenseLabel
+            // 
+            this.cheatMenuDefenseLabel.AutoSize = true;
+            this.cheatMenuDefenseLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cheatMenuDefenseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheatMenuDefenseLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.cheatMenuDefenseLabel.Location = new System.Drawing.Point(44, 203);
+            this.cheatMenuDefenseLabel.Name = "cheatMenuDefenseLabel";
+            this.cheatMenuDefenseLabel.Size = new System.Drawing.Size(108, 18);
+            this.cheatMenuDefenseLabel.TabIndex = 19;
+            this.cheatMenuDefenseLabel.Text = "Player Defense";
+            // 
+            // cheatMenuEvasionLabel
+            // 
+            this.cheatMenuEvasionLabel.AutoSize = true;
+            this.cheatMenuEvasionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cheatMenuEvasionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheatMenuEvasionLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.cheatMenuEvasionLabel.Location = new System.Drawing.Point(44, 162);
+            this.cheatMenuEvasionLabel.Name = "cheatMenuEvasionLabel";
+            this.cheatMenuEvasionLabel.Size = new System.Drawing.Size(106, 18);
+            this.cheatMenuEvasionLabel.TabIndex = 18;
+            this.cheatMenuEvasionLabel.Text = "Player Evasion";
+            // 
+            // cheatMenuHealthLabel
+            // 
+            this.cheatMenuHealthLabel.AutoSize = true;
+            this.cheatMenuHealthLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cheatMenuHealthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheatMenuHealthLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.cheatMenuHealthLabel.Location = new System.Drawing.Point(44, 122);
+            this.cheatMenuHealthLabel.Name = "cheatMenuHealthLabel";
+            this.cheatMenuHealthLabel.Size = new System.Drawing.Size(95, 18);
+            this.cheatMenuHealthLabel.TabIndex = 17;
+            this.cheatMenuHealthLabel.Text = "Player Health";
+            // 
+            // cheatMenuSpeedLabel
+            // 
+            this.cheatMenuSpeedLabel.AutoSize = true;
+            this.cheatMenuSpeedLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cheatMenuSpeedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheatMenuSpeedLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.cheatMenuSpeedLabel.Location = new System.Drawing.Point(44, 79);
+            this.cheatMenuSpeedLabel.Name = "cheatMenuSpeedLabel";
+            this.cheatMenuSpeedLabel.Size = new System.Drawing.Size(95, 18);
+            this.cheatMenuSpeedLabel.TabIndex = 16;
+            this.cheatMenuSpeedLabel.Text = "Player Speed";
             // 
             // cheatMenuDefenseDownButton
             // 
@@ -382,6 +527,7 @@
             this.cheatMenuDefenseDownButton.TabIndex = 15;
             this.cheatMenuDefenseDownButton.Text = "-";
             this.cheatMenuDefenseDownButton.UseVisualStyleBackColor = true;
+            this.cheatMenuDefenseDownButton.Click += new System.EventHandler(this.cheatMenuDefenseDownButton_Click);
             // 
             // cheatMenuEvasionDownButton
             // 
@@ -391,6 +537,7 @@
             this.cheatMenuEvasionDownButton.TabIndex = 14;
             this.cheatMenuEvasionDownButton.Text = "-";
             this.cheatMenuEvasionDownButton.UseVisualStyleBackColor = true;
+            this.cheatMenuEvasionDownButton.Click += new System.EventHandler(this.cheatMenuEvasionDownButton_Click);
             // 
             // cheatMenuHealthDownButton
             // 
@@ -400,6 +547,7 @@
             this.cheatMenuHealthDownButton.TabIndex = 13;
             this.cheatMenuHealthDownButton.Text = "-";
             this.cheatMenuHealthDownButton.UseVisualStyleBackColor = true;
+            this.cheatMenuHealthDownButton.Click += new System.EventHandler(this.cheatMenuHealthDownButton_Click);
             // 
             // cheatMenuSpeedDownButton
             // 
@@ -409,6 +557,7 @@
             this.cheatMenuSpeedDownButton.TabIndex = 12;
             this.cheatMenuSpeedDownButton.Text = "-";
             this.cheatMenuSpeedDownButton.UseVisualStyleBackColor = true;
+            this.cheatMenuSpeedDownButton.Click += new System.EventHandler(this.cheatMenuSpeedDownButton_Click);
             // 
             // cheatMenuWinButton
             // 
@@ -418,6 +567,7 @@
             this.cheatMenuWinButton.TabIndex = 11;
             this.cheatMenuWinButton.Text = "WIN GAME";
             this.cheatMenuWinButton.UseVisualStyleBackColor = true;
+            this.cheatMenuWinButton.Click += new System.EventHandler(this.cheatMenuWinButton_Click);
             // 
             // cheatMenuPictureBox
             // 
@@ -438,131 +588,6 @@
             this.cheatMenuExitButton.UseVisualStyleBackColor = true;
             this.cheatMenuExitButton.Click += new System.EventHandler(this.closeCheatMenu);
             // 
-            // cheatMenuDefenseDisplay
-            // 
-            this.cheatMenuDefenseDisplay.Location = new System.Drawing.Point(173, 203);
-            this.cheatMenuDefenseDisplay.Name = "cheatMenuDefenseDisplay";
-            this.cheatMenuDefenseDisplay.Size = new System.Drawing.Size(79, 20);
-            this.cheatMenuDefenseDisplay.TabIndex = 7;
-            // 
-            // cheatMenuEvasionDisplay
-            // 
-            this.cheatMenuEvasionDisplay.Location = new System.Drawing.Point(173, 160);
-            this.cheatMenuEvasionDisplay.Name = "cheatMenuEvasionDisplay";
-            this.cheatMenuEvasionDisplay.Size = new System.Drawing.Size(79, 20);
-            this.cheatMenuEvasionDisplay.TabIndex = 5;
-            // 
-            // cheatMenuHealthDisplay
-            // 
-            this.cheatMenuHealthDisplay.Location = new System.Drawing.Point(173, 120);
-            this.cheatMenuHealthDisplay.Name = "cheatMenuHealthDisplay";
-            this.cheatMenuHealthDisplay.Size = new System.Drawing.Size(79, 20);
-            this.cheatMenuHealthDisplay.TabIndex = 3;
-            // 
-            // cheatMenuSpeedDisplay
-            // 
-            this.cheatMenuSpeedDisplay.Location = new System.Drawing.Point(173, 80);
-            this.cheatMenuSpeedDisplay.Name = "cheatMenuSpeedDisplay";
-            this.cheatMenuSpeedDisplay.Size = new System.Drawing.Size(79, 20);
-            this.cheatMenuSpeedDisplay.TabIndex = 1;
-            // 
-            // cheatMenuSpeedLabel
-            // 
-            this.cheatMenuSpeedLabel.AutoSize = true;
-            this.cheatMenuSpeedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cheatMenuSpeedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheatMenuSpeedLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.cheatMenuSpeedLabel.Location = new System.Drawing.Point(44, 79);
-            this.cheatMenuSpeedLabel.Name = "cheatMenuSpeedLabel";
-            this.cheatMenuSpeedLabel.Size = new System.Drawing.Size(95, 18);
-            this.cheatMenuSpeedLabel.TabIndex = 16;
-            this.cheatMenuSpeedLabel.Text = "Player Speed";
-            // 
-            // cheatMenuHealthLabel
-            // 
-            this.cheatMenuHealthLabel.AutoSize = true;
-            this.cheatMenuHealthLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cheatMenuHealthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheatMenuHealthLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.cheatMenuHealthLabel.Location = new System.Drawing.Point(44, 122);
-            this.cheatMenuHealthLabel.Name = "cheatMenuHealthLabel";
-            this.cheatMenuHealthLabel.Size = new System.Drawing.Size(95, 18);
-            this.cheatMenuHealthLabel.TabIndex = 17;
-            this.cheatMenuHealthLabel.Text = "Player Health";
-            // 
-            // cheatMenuEvasionLabel
-            // 
-            this.cheatMenuEvasionLabel.AutoSize = true;
-            this.cheatMenuEvasionLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cheatMenuEvasionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheatMenuEvasionLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.cheatMenuEvasionLabel.Location = new System.Drawing.Point(44, 162);
-            this.cheatMenuEvasionLabel.Name = "cheatMenuEvasionLabel";
-            this.cheatMenuEvasionLabel.Size = new System.Drawing.Size(106, 18);
-            this.cheatMenuEvasionLabel.TabIndex = 18;
-            this.cheatMenuEvasionLabel.Text = "Player Evasion";
-            this.cheatMenuEvasionLabel.Click += new System.EventHandler(this.cheatMenuEvasionLabel_Click);
-            // 
-            // cheatMenuDefenseLabel
-            // 
-            this.cheatMenuDefenseLabel.AutoSize = true;
-            this.cheatMenuDefenseLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cheatMenuDefenseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheatMenuDefenseLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.cheatMenuDefenseLabel.Location = new System.Drawing.Point(44, 203);
-            this.cheatMenuDefenseLabel.Name = "cheatMenuDefenseLabel";
-            this.cheatMenuDefenseLabel.Size = new System.Drawing.Size(108, 18);
-            this.cheatMenuDefenseLabel.TabIndex = 19;
-            this.cheatMenuDefenseLabel.Text = "Player Defense";
-            // 
-            // cheatMenuSpeedUpButton
-            // 
-            this.cheatMenuSpeedUpButton.Location = new System.Drawing.Point(251, 80);
-            this.cheatMenuSpeedUpButton.Name = "cheatMenuSpeedUpButton";
-            this.cheatMenuSpeedUpButton.Size = new System.Drawing.Size(20, 20);
-            this.cheatMenuSpeedUpButton.TabIndex = 20;
-            this.cheatMenuSpeedUpButton.Text = "+";
-            this.cheatMenuSpeedUpButton.UseVisualStyleBackColor = true;
-            // 
-            // cheatMenuHealthUpButton
-            // 
-            this.cheatMenuHealthUpButton.Location = new System.Drawing.Point(251, 120);
-            this.cheatMenuHealthUpButton.Name = "cheatMenuHealthUpButton";
-            this.cheatMenuHealthUpButton.Size = new System.Drawing.Size(20, 20);
-            this.cheatMenuHealthUpButton.TabIndex = 21;
-            this.cheatMenuHealthUpButton.Text = "+";
-            this.cheatMenuHealthUpButton.UseVisualStyleBackColor = true;
-            // 
-            // cheatMenuEvasionUpButton
-            // 
-            this.cheatMenuEvasionUpButton.Location = new System.Drawing.Point(251, 160);
-            this.cheatMenuEvasionUpButton.Name = "cheatMenuEvasionUpButton";
-            this.cheatMenuEvasionUpButton.Size = new System.Drawing.Size(20, 20);
-            this.cheatMenuEvasionUpButton.TabIndex = 22;
-            this.cheatMenuEvasionUpButton.Text = "+";
-            this.cheatMenuEvasionUpButton.UseVisualStyleBackColor = true;
-            // 
-            // cheatMenuDefenseUpButton
-            // 
-            this.cheatMenuDefenseUpButton.Location = new System.Drawing.Point(251, 203);
-            this.cheatMenuDefenseUpButton.Name = "cheatMenuDefenseUpButton";
-            this.cheatMenuDefenseUpButton.Size = new System.Drawing.Size(20, 20);
-            this.cheatMenuDefenseUpButton.TabIndex = 23;
-            this.cheatMenuDefenseUpButton.Text = "+";
-            this.cheatMenuDefenseUpButton.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Fugaz One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(144, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 31);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "CHEAT MENU";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -574,6 +599,11 @@
             this.label3.Size = new System.Drawing.Size(216, 20);
             this.label3.TabIndex = 22;
             this.label3.Text = "Press \'X\' to open cheat menu";
+            // 
+            // cheatMenuUpdater
+            // 
+            this.cheatMenuUpdater.Enabled = true;
+            this.cheatMenuUpdater.Tick += new System.EventHandler(this.cheatMenuUpdater_Tick);
             // 
             // FrmLevel
             // 
@@ -674,10 +704,6 @@
         private System.Windows.Forms.Button cheatMenuWinButton;
         private System.Windows.Forms.PictureBox cheatMenuPictureBox;
         private System.Windows.Forms.Button cheatMenuExitButton;
-        private System.Windows.Forms.TextBox cheatMenuDefenseDisplay;
-        private System.Windows.Forms.TextBox cheatMenuEvasionDisplay;
-        private System.Windows.Forms.TextBox cheatMenuHealthDisplay;
-        private System.Windows.Forms.TextBox cheatMenuSpeedDisplay;
         private System.Windows.Forms.Label cheatMenuDefenseLabel;
         private System.Windows.Forms.Label cheatMenuEvasionLabel;
         private System.Windows.Forms.Label cheatMenuHealthLabel;
@@ -688,6 +714,11 @@
         private System.Windows.Forms.Button cheatMenuSpeedUpButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer cheatMenuUpdater;
+        private System.Windows.Forms.Label cheatMenuSpeedDisplay;
+        private System.Windows.Forms.Label cheatMenuHealthDisplay;
+        private System.Windows.Forms.Label cheatMenuDefenseDisplay;
+        private System.Windows.Forms.Label cheatMenuEvasionDisplay;
     }
 }
 
