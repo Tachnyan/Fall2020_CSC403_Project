@@ -79,7 +79,7 @@ namespace Fall2020_CSC403_Project
                 FrmLevel f = (FrmLevel)Creator;
                 f.statsMenu = null;
                 f.RequestShow();
-                f.StartPlayerMoveTimer();
+                f.StartMoveTimers();
                 Close();
             }
         }

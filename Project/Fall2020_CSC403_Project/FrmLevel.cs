@@ -6,12 +6,12 @@ using System.Media;
 using System.Windows.Forms;
 using System.Media;
 
-
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : ChildForm
     {
         public static bool win = false;
+        public static bool lose = false;
         private Player player;
 
         private Enemy enemyPoisonPacket;
@@ -21,6 +21,7 @@ namespace Fall2020_CSC403_Project
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private FrmGameOver frmGameOver;
         public StatsMenu statsMenu;
         public bool isMenuOpen = false;
 
@@ -267,13 +268,15 @@ namespace Fall2020_CSC403_Project
                 statsMenu.RequestShow();
                 statsMenu.Activate();
                 tmrPlayerMove.Stop();
+                tmrEnemyMove.Stop();
                 RequestHide();
             }
         }
 
-        public void StartPlayerMoveTimer()
+        public void StartMoveTimers()
         {
             tmrPlayerMove.Start();
+            tmrEnemyMove.Start();
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
@@ -324,6 +327,18 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+
+        private void LoseChecker(object sender, EventArgs e)
+        {
+            if (lose)
+            {
+                frmGameOver = (FrmGameOver)CreateChild(new FrmGameOver());
+                frmGameOver.MdiParent = this.MdiParent;
+                frmGameOver.RequestShow();
+                Close();
+            }
+        }
+
         private void UpdateHealthBar()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -345,5 +360,4 @@ namespace Fall2020_CSC403_Project
 
         }
     }
-
 }

@@ -143,9 +143,16 @@ namespace Fall2020_CSC403_Project {
       {
         FrmLevel.win = true;
       }
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (enemy.Health <= 0) {
         instance = null;
         mapMusic.PlayLooping();
+        CloseCleanly();
+      }
+      //checks if player's health is zero and opens the game over form
+      if (player.Health <= 0){
+        FrmLevel.lose = true;
+        instance = null;
+        battleMusic.Stop();
         CloseCleanly();
       }
     }
