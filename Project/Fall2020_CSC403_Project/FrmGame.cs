@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project
         {    
             Load += new EventHandler(this.FrmGame_Load);
             KeyDown += new KeyEventHandler(this.FrmGame_Keydown);
+            KeyPreview = true;
             InitializeComponent();
         }
 
@@ -41,8 +42,12 @@ namespace Fall2020_CSC403_Project
         private void FrmGame_Keydown(object sender, KeyEventArgs e)
         {
             
-            Console.WriteLine(e.KeyValue);
-            level.keyListener(e);
+            
+            if(e.KeyCode == Keys.Escape)
+            {
+                Close();
+                return;
+            }
         }
 
         public void requestHide(Form child)
