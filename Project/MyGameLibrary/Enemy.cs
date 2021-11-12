@@ -56,6 +56,7 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public Vector2 enemyMoveSpeed { get; private set; }
+    private Direction currentDirection;
     public Vector2 enemyLastPosition { get; private set; }
     public Vector2 enemyPosition { get; private set; }
     public Collider enemyCollider { get; private set; }
@@ -69,21 +70,25 @@ namespace Fall2020_CSC403_Project.code {
      public void EnemyGoLeft()
      {
             enemyMoveSpeed = new Vector2(-2, 0);
+            currentDirection = Direction.Left;
      }
 
     public void EnemyGoDown()
         {
             enemyMoveSpeed = new Vector2(0, +2);
+            currentDirection = Direction.Down;
         }
 
     public void EnemyGoUp()
         {
             enemyMoveSpeed = new Vector2(0, -2);
+            currentDirection = Direction.Up;
         }
 
     public void EnemyGoRight()
         {
             enemyMoveSpeed = new Vector2(+2, 0);
+            currentDirection = Direction.Right;
         }
 
     public void EnemyMoveBack()
@@ -91,31 +96,38 @@ namespace Fall2020_CSC403_Project.code {
             enemyPosition = enemyLastPosition;
         }
 
+        private enum Direction : int
+        {
+            Left = 0,
+            Up = 1,
+            Right = 2,
+            Down = 3
+        }
         public void RandomDirection()
         {
-            Random rnd = new Random();
 
-            int Dir = rnd.Next(1, 4);
 
-            if(Dir == 1)
+            int Dir = Util.rand.Next(0, 4);
+
+            if(Dir == (int)Direction.Left)
             {
-                EnemyMoveBack();
-                enemyMoveSpeed = new Vector2(-2, 0);
+                if ((int)currentDirection == Dir) EnemyGoRight();
+                else EnemyGoLeft();
             }
-            else if(Dir == 2)
+            else if(Dir == (int)Direction.Right)
             {
-                EnemyMoveBack();
-                enemyMoveSpeed = new Vector2(0, +2);
+                if ((int)currentDirection == Dir) EnemyGoLeft();
+                else EnemyGoRight();
             }
-            else if(Dir == 3)
+            else if(Dir == (int)Direction.Down)
             {
-                EnemyMoveBack();
-                enemyMoveSpeed = new Vector2(0, -2);
+                if ((int)currentDirection == Dir) EnemyGoUp();
+                else EnemyGoDown();
             }
-            else
+            else if(Dir == (int)Direction.Up)
             {
-                EnemyMoveBack();
-                enemyMoveSpeed = new Vector2(+2, 0);
+                if ((int)currentDirection == Dir) EnemyGoDown();
+                else EnemyGoUp();
             }
 
         }

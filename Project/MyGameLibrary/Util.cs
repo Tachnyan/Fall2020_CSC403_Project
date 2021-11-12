@@ -9,8 +9,7 @@ namespace Fall2020_CSC403_Project.code
     public static class Util
     {
 
-        private static Random rand = new Random();
-
+        public static Random rand = new Random();
         public static  int GetRandomInt()
         {
             return rand.Next(-1, 2);
