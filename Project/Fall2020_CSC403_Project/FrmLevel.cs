@@ -268,13 +268,15 @@ namespace Fall2020_CSC403_Project
                 statsMenu.RequestShow();
                 statsMenu.Activate();
                 tmrPlayerMove.Stop();
+                tmrEnemyMove.Stop();
                 RequestHide();
             }
         }
 
-        public void StartPlayerMoveTimer()
+        public void StartMoveTimers()
         {
             tmrPlayerMove.Start();
+            tmrEnemyMove.Start();
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
