@@ -2,8 +2,10 @@
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 using System.Media;
+
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : ChildForm {
@@ -33,12 +35,12 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      MapMusic();
+      mapMusic.PlayLooping();
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 2, 2, 2);
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 2, 2, 2);
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 2, 2, 2);
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 2, 2, 2);
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -120,6 +122,44 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    private void tmrEnemyMove_Tick(object sender, EventArgs e)
+        {
+            enemyCheeto.EnemyMove();
+            enemyPoisonPacket.EnemyMove();
+
+            picEnemyCheeto.Location = new Point((int)enemyCheeto.enemyPosition.x, (int)enemyCheeto.enemyPosition.y);
+            picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.enemyPosition.x, (int)enemyPoisonPacket.enemyPosition.y);
+
+            enemyCheeto.EnemyGoLeft();
+            enemyPoisonPacket.EnemyGoDown();
+
+            if (EnemyHitAWall(enemyCheeto))
+            {
+                enemyCheeto.RandomDirection();
+            }
+
+            if (EnemyHitAWall(enemyPoisonPacket))
+            {
+
+                enemyPoisonPacket.RandomDirection();
+            }
+        }
+
+    private bool EnemyHitAWall(Enemy e) 
+    {
+        {
+            bool enemyHitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (e.enemyCollider.Intersects(walls[w].Collider))
+                {
+                    enemyHitAWall = true;
+                    break;
+                }
+            }
+            return enemyHitAWall;
+        }
+    }
     private bool HitAWall(Character c) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
@@ -135,13 +175,15 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
-    private void Fight(Enemy enemy) {
+    private void Fight(Enemy enemy) 
+    {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = (FrmBattle)CreateChild(FrmBattle.GetInstance(enemy));
       frmBattle.MdiParent = this.MdiParent;
       RequestHide();
       frmBattle.Show();
+      
 
      
         
@@ -219,7 +261,7 @@ namespace Fall2020_CSC403_Project {
 
       //not scalable, but a hilariously simple way of moving the collider sufficiently afar
       //to make it impossible to reach by the player
-      enemy.Collider.MovePosition(1500,1500);
+      enemy.enemyCollider.MovePosition(1500,1500);
 
       //sets the visibility of the picture depending on the enemy
       //had to do this since the pic of the enemy is stored seperate from the rest of enemy attributes

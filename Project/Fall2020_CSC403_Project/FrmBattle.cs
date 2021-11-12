@@ -32,6 +32,7 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       BattleMusic();
 
+            battleMusic.PlayLooping();
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
@@ -144,7 +145,6 @@ namespace Fall2020_CSC403_Project {
       }
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
-        battleMusic.Stop();
         mapMusic.PlayLooping();
         CloseCleanly();
       }
