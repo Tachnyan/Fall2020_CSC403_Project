@@ -340,9 +340,75 @@ namespace Fall2020_CSC403_Project
             this.ActiveControl = null;
         }
 
-        private void cheatMenuEvasionLabel_Click(object sender, EventArgs e)
+        //timer to update labels with current player stat values on cheat menu
+        private void cheatMenuUpdater_tick(object sender, EventArgs e)
         {
+            cheatMenuSpeedDisplay.Text = player.getSpeed().ToString();
+            cheatMenuHealthDisplay.Text = player.Health.ToString();
+            cheatMenuEvasionDisplay.Text = player.evasion.ToString();
+            cheatMenuDefenseDisplay.Text = player.defense.ToString();
+        }
 
+        //buttons for altering player stats
+        private void cheatMenuSpeedDownButton_Click(object sender, EventArgs e)
+        {
+            if(player.getSpeed() > 1){
+                player.setSpeed(player.getSpeed() - 1);
+            }
+        }
+
+        private void cheatMenuSpeedUpButton_Click(object sender, EventArgs e)
+        {
+            player.setSpeed(player.getSpeed() + 1);
+        }
+
+        private void cheatMenuHealthDownButton_Click(object sender, EventArgs e)
+        {
+            if(player.Health > 1){
+                player.AlterHealth(-1);
+            }
+        }
+
+        private void cheatMenuHealthUpButton_Click(object sender, EventArgs e)
+        {
+            if(player.Health < player.MaxHealth){
+                player.AlterHealth(1);
+            }
+        }
+
+        private void cheatMenuEvasionDownButton_Click(object sender, EventArgs e)
+        {
+            if(player.evasion > 1){
+                player.AlterEvasion(-1);
+            }
+        }
+
+        private void cheatMenuEvasionUpButton_Click(object sender, EventArgs e)
+        {
+            player.AlterEvasion(1);
+        }
+
+        private void cheatMenuDefenseDownButton_Click(object sender, EventArgs e)
+        {
+            if(player.defense > 1){
+                player.AlterDefense(-1);
+            }
+        }
+
+        private void cheatMenuDefenseUpButton_Click(object sender, EventArgs e)
+        {
+            player.AlterDefense(1);
+        }
+
+        //button to win game instantly
+        private void cheatMenuWinButton_Click(object sender, EventArgs e)
+        {
+            cheatMenu.Visible = false;
+            this.ActiveControl = null;
+            Dispose(enemyPoisonPacket);
+            Dispose(enemyCheeto);
+            Dispose(bossKoolaid);
+            win = true;
         }
     }
 
