@@ -330,7 +330,7 @@
             // checkLose
             //
             this.checkLose.Enabled = true;
-            this.checkLose.Tick += new System.EventHandler(this.loseChecker);
+            this.checkLose.Tick += new System.EventHandler(this.LoseChecker);
             // 
             // lblPlayerHealthFull
             // 

@@ -6,16 +6,12 @@ using System.Media;
 using System.Windows.Forms;
 using System.Media;
 
-namespace Fall2020_CSC403_Project 
+namespace Fall2020_CSC403_Project
 {
-  public partial class FrmLevel : ChildForm {
-    public static bool win = false;
-    public static bool lose = false;
-    private Player player;
-
     public partial class FrmLevel : ChildForm
     {
         public static bool win = false;
+        public static bool lose = false;
         private Player player;
 
         private Enemy enemyPoisonPacket;
@@ -25,15 +21,11 @@ namespace Fall2020_CSC403_Project
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private FrmGameOver frmGameOver;
         public StatsMenu statsMenu;
         public bool isMenuOpen = false;
 
-    public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
-    private FrmGameOver frmGameOver;
-    public StatsMenu statsMenu;
-    public bool isMenuOpen = false;
+        public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
 
 
         public FrmLevel()
@@ -332,23 +324,21 @@ namespace Fall2020_CSC403_Project
                 winImage.Visible = true;
             }
         }
-    }
 
-    private void loseChecker(object sender, EventArgs e)
-    {
-        if (lose)
+
+        private void LoseChecker(object sender, EventArgs e)
         {
-            frmGameOver = (FrmGameOver)CreateChild(new FrmGameOver());
-            frmGameOver.MdiParent = this.MdiParent;
-            frmGameOver.RequestShow();
-            Close();
+            if (lose)
+            {
+                frmGameOver = (FrmGameOver)CreateChild(new FrmGameOver());
+                frmGameOver.MdiParent = this.MdiParent;
+                frmGameOver.RequestShow();
+                Close();
+            }
         }
-    }
-        
-    private void UpdateHealthBar() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
 
-        
+        private void UpdateHealthBar()
+        {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
 
             const int MAX_HEALTHBAR_WIDTH = 226;
@@ -368,5 +358,4 @@ namespace Fall2020_CSC403_Project
 
         }
     }
-
 }
