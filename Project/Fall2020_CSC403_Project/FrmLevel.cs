@@ -37,10 +37,10 @@ namespace Fall2020_CSC403_Project {
 
       mapMusic.PlayLooping();
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 2, 2, 2);
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 2, 2, 2);
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 2, 2, 2);
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 2, 2 ,2);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -60,11 +60,6 @@ namespace Fall2020_CSC403_Project {
       timeBegin = DateTime.Now;
       
     }
-
-    public void MapMusic()
-        {
-            mapMusic.PlayLooping();
-        }
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
@@ -120,7 +115,16 @@ namespace Fall2020_CSC403_Project {
       if(bossKoolaid.Health <= 0){
         Dispose(bossKoolaid);
       }
-    }
+      if (EnemyHitAWall(enemyCheeto))
+      {
+        enemyCheeto.RandomDirection();
+      }
+
+      if (EnemyHitAWall(enemyPoisonPacket))
+      {
+            enemyPoisonPacket.RandomDirection();
+      }
+        }
 
     private void tmrEnemyMove_Tick(object sender, EventArgs e)
         {
@@ -132,17 +136,6 @@ namespace Fall2020_CSC403_Project {
 
             enemyCheeto.EnemyGoLeft();
             enemyPoisonPacket.EnemyGoDown();
-
-            if (EnemyHitAWall(enemyCheeto))
-            {
-                enemyCheeto.RandomDirection();
-            }
-
-            if (EnemyHitAWall(enemyPoisonPacket))
-            {
-
-                enemyPoisonPacket.RandomDirection();
-            }
         }
 
     private bool EnemyHitAWall(Enemy e) 
