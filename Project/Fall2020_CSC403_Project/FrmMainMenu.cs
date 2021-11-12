@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project
     public partial class FrmMainMenu : ChildForm
     {
         private int difficultyVar;
-        private FrmLevel frmLevel;
+        private FrmCutscene frmCutscene;
 
         public FrmMainMenu()
         {
@@ -73,10 +73,9 @@ namespace Fall2020_CSC403_Project
             //f.level = (FrmLevel)CreateChild(new FrmLevel());
             //f.level.RequestShow();
             //Close();
-            FrmLevel.lose = false;
-            frmLevel = (FrmLevel)CreateChild(new FrmLevel());
-            frmLevel.MdiParent = this.MdiParent;
-            frmLevel.RequestShow();
+            frmCutscene = (FrmCutscene)CreateChild(new FrmCutscene());
+            frmCutscene.MdiParent = this.MdiParent;
+            frmCutscene.RequestShow();
             Close();
         }
     }
