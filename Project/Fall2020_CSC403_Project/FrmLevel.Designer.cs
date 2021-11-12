@@ -28,6 +28,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyMove = new System.Windows.Forms.Timer(this.components);
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
@@ -116,6 +117,12 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            //
+            // tmrEnemyMove
+            //
+            this.tmrEnemyMove.Enabled = true;
+            this.tmrEnemyMove.Interval = 10;
+            this.tmrEnemyMove.Tick += new System.EventHandler(this.tmrEnemyMove_Tick);
             // 
             // picEnemyCheeto
             // 
@@ -638,6 +645,7 @@
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
+    private System.Windows.Forms.Timer tmrEnemyMove;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
     private System.Windows.Forms.PictureBox picEnemyPoisonPacket;

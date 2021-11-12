@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -150,12 +150,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bitmap1.bmp" />
-    <Content Include="data\battle_music.wav" />
     <Content Include="data\boxart.png" />
     <Content Include="data\creamy.png" />
     <Content Include="data\crunchy.png" />
-    <Content Include="data\map_music.wav" />
     <Content Include="data\nutty.png" />
+    <Content Include="data\battle_music.wav" />
+    <Content Include="data\battle_music2.wav" />
+    <Content Include="data\map_music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
