@@ -48,7 +48,6 @@ namespace Fall2020_CSC403_Project
                 Close();
                 return;
             }
-            level.keyListener(e);
         }
 
         public void requestHide(Form child)
