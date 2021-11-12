@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Collider consumableCollider;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -143,7 +144,7 @@ namespace Fall2020_CSC403_Project {
 
     private bool HitAConsumable(Character you){
        bool hitConsumable = false;
-       if (you.Collider.Intersects(HitAConsumable().Collider)){
+       if (you.Collider.Intersects(consumableCollider)){
             hitConsumable = true;
        }
        return hitConsumable;
