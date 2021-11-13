@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCutscene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCutscene.Designer.cs">
+      <DependentUpon>FrmCutscene.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGameOver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="StatsMenu.Designer.cs">
       <DependentUpon>StatsMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmCutscene.resx">
+      <DependentUpon>FrmCutscene.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGameOver.resx">
       <DependentUpon>FrmGameOver.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,8 +169,17 @@
   <ItemGroup>
     <Content Include="Bitmap1.bmp" />
     <Content Include="data\boxart.png" />
+    <Content Include="data\controls.png" />
     <Content Include="data\creamy.png" />
     <Content Include="data\crunchy.png" />
+    <Content Include="data\cutscene1.png" />
+    <Content Include="data\cutscene2.png" />
+    <Content Include="data\cutscene3.png" />
+    <Content Include="data\cutscene4.png" />
+    <Content Include="data\cutscene5.png" />
+    <Content Include="data\cutscene6.png" />
+    <Content Include="data\cutscene7.png" />
+    <Content Include="data\cutscene8.png" />
     <Content Include="data\nutty.png" />
     <Content Include="data\battle_music.wav" />
     <Content Include="data\battle_music2.wav" />
