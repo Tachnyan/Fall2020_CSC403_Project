@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCutscene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCutscene.Designer.cs">
+      <DependentUpon>FrmCutscene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGameOver.Designer.cs">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGame.Designer.cs">
+      <DependentUpon>FrmGame.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
@@ -60,8 +84,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatsMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsMenu.Designer.cs">
+      <DependentUpon>StatsMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmCutscene.resx">
+      <DependentUpon>FrmCutscene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGameOver.resx">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGame.resx">
+      <DependentUpon>FrmGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
@@ -70,6 +112,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsMenu.resx">
+      <DependentUpon>StatsMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -120,6 +165,28 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bitmap1.bmp" />
+    <Content Include="data\boxart.png" />
+    <Content Include="data\controls.png" />
+    <Content Include="data\creamy.png" />
+    <Content Include="data\crunchy.png" />
+    <Content Include="data\cutscene1.png" />
+    <Content Include="data\cutscene2.png" />
+    <Content Include="data\cutscene3.png" />
+    <Content Include="data\cutscene4.png" />
+    <Content Include="data\cutscene5.png" />
+    <Content Include="data\cutscene6.png" />
+    <Content Include="data\cutscene7.png" />
+    <Content Include="data\cutscene8.png" />
+    <Content Include="data\nutty.png" />
+    <Content Include="data\battle_music.wav" />
+    <Content Include="data\battle_music2.wav" />
+    <Content Include="data\death.gif" />
+    <Content Include="data\map_music.wav" />
+    <Content Include="data\nutty.png" />
+    <Content Include="data\youdied.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
